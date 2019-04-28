@@ -41,7 +41,7 @@ public class CalendarProperties {
 
     private boolean mEventsEnabled;
     private boolean mSwipeEnabled;
-    private boolean mEditable;
+    private boolean mEditable = true;
 
     private Drawable mPreviousButtonSrc, mForwardButtonSrc;
 
