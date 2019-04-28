@@ -186,6 +186,8 @@ If you want to disable the swipe gesture to change the month, you have to use th
 calendarView.setSwipeEnabled(false);
 ```
 #### Disable edit calendar:
+If you want to disable the edit selected dates, you have to use the following in code: 
+
 ```java
 calendarView.setIsEditable(false);
 ```
