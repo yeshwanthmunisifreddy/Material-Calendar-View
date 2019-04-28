@@ -1,9 +1,6 @@
 # Material-Calendar-View
 
 Material-Calendar-View is a simple and customizable calendar widget for Android based on Material Design. The widget has two funcionalities: a date picker to select dates (available as an XML widget and a dialog) and a classic calendar. The date picker can work either as a single day picker, many days picker or range picker.
-
-We described a simple usage of the component [in this article](http://applandeo.com/blog/material-calendar-view-customized-calendar-widget-android/).
-
 ![34562830-637ddbae-f150-11e7-8004-9024fb84a883](https://user-images.githubusercontent.com/2614225/46456381-f72da200-c7ae-11e8-8284-1799fe83a1c9.png) ![device-2018-01-04-125741](https://user-images.githubusercontent.com/2614225/34562842-709a71ee-f150-11e7-966b-cbbe6169b88b.png) ![device-2018-01-04-125831](https://user-images.githubusercontent.com/2614225/34562859-7bd3e64e-f150-11e7-98f4-f00bafe846c6.png) ![device-2018-01-04-125915](https://user-images.githubusercontent.com/2614225/34562878-8f382f06-f150-11e7-97e4-5ac9babe5aa8.png)
 
 
@@ -16,9 +13,6 @@ We described a simple usage of the component [in this article](http://applandeo.
 * Range picker
 * Events icons
 * Fully colors customization
-
-## How to migrate from previous version to 1.5.1?
-We have renamed setOnPreviousButtonClickListener() and setOnForwardButtonClickListener() so please refer to [Previous and forward buttons listeners](https://github.com/Applandeo/Material-Calendar-View/blob/master/README.md#previous-and-forward-buttons-listeners).
 
 ## How to use?
 Make sure you are using the newest **com.android.support:appcompat-v7**.
@@ -191,6 +185,10 @@ If you want to disable the swipe gesture to change the month, you have to use th
 ```java
 calendarView.setSwipeEnabled(false);
 ```
+#### Disable edit calendar:
+```java
+calendarView.setIsEditable(false);
+```
 
 #### Translations:
 To translate months names, abbreviations of days, "TODAY", "OK" and "CANCEL" buttons, just add below tags to your `strings.xml` file:
@@ -267,70 +265,12 @@ new DatePickerBuilder(this, listener)
         .disabledDaysLabelsColor(R.color.color) // Color of disabled days numbers
         .todayLabelColor(R.color.color) // Color of the today number
         .dialogButtonsColor(R.color.color); // Color of "Cancel" and "OK" buttons
+        .setEditable(true); // Editable slected dates in calendar, 
 ```
 
-## Changelog
-#### Version 1.5.0:
-* Added support for events (images) in picker calendars (many thanks [thavelka](https://github.com/thavelka) for your contribution)
---> [Customization](https://github.com/Applandeo/Material-Calendar-View#customization)
-* Added method which let you set selected dates programmatically --> [Setting selected dates](https://github.com/Applandeo/Material-Calendar-View#setting-selected-dates)
-* Now, the first day of a week depends on device location (thanks [thavelka](https://github.com/thavelka))
-* Removed Glide dependency
-* Added support for Drawable in EventDay object (You can set any drawable you want) --> [Adding events with icons](https://github.com/Applandeo/Material-Calendar-View/blob/master/README.md#adding-events-with-icons)
-* Added ability to set header colours (background, label and arrows) programmatically --> [Colors customization](https://github.com/Applandeo/Material-Calendar-View#colors-customization)
-
-#### Version 1.4.0:
-* More color customization (abbreviations, calendar pages, labels colors)
-* Changed onNavigationButtonClickListeners to onCalendarPageChangeListeners
-* Added page change listeners to dialog pickers
-* Added onDayClickListener to pickers (not dialog pickers)
-* Added ability to insert list of disabled days
-
-#### Version 1.3.2:
-* Bug fixes
-
-#### Version 1.3.1:
-* Bug fixes
-
-#### Version 1.3.0:
-* Added ability to set minimum and maximum available date
-* Added "Today" button to dialog picker
-
-#### Version 1.2.0:
-* Added many days picker
-* Added range picker
-
-#### Version 1.1.1:
-* Added listeners for previous and forward arrow buttons
-
-#### Version 1.1.0:
-* Added build-in DatePicker dialog
-
-#### Version 1.0.1:
-* Bugs fixes
 
 #### Version 1.0.0:
 * Initial build
 
 ## Get in touch
 It would be great if you decide to use our component in your project. It’s open source, feel free. Write to us at hi@applandeo.com if you want to be listed and we will include your app in our repo. If you have any questions or suggestions just let us know.
-
-#### Apps using Material-Calendar-View:
-* [FreQuest](https://play.google.com/store/apps/details?id=com.applandeo.frequest)
-
-## License
-```
-Copyright 2017, Applandeo sp. z o.o.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-   http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-```
