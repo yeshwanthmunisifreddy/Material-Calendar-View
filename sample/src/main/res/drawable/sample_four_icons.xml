@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:right="40dp">
+        <bitmap
+            android:gravity="top|left"
+            android:src="@drawable/ic_adb"
+            android:tint="@android:color/holo_green_dark" />
+    </item>
+    <item>
+        <bitmap
+            android:gravity="top|right"
+            android:src="@drawable/ic_favorite"
+            android:tint="@android:color/holo_red_dark" />
+    </item>
+
+    <item android:top="40dp">
+        <bitmap
+            android:gravity="bottom|left"
+            android:src="@drawable/ic_pet"
+            android:tint="@android:color/holo_blue_dark" />
+    </item>
+
+    <item>
+        <bitmap
+            android:gravity="bottom|right"
+            android:src="@drawable/ic_add" />
+    </item>
+</layer-list>
