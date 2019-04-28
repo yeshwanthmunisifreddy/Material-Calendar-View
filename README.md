@@ -265,7 +265,7 @@ new DatePickerBuilder(this, listener)
         .disabledDaysLabelsColor(R.color.color) // Color of disabled days numbers
         .todayLabelColor(R.color.color) // Color of the today number
         .dialogButtonsColor(R.color.color); // Color of "Cancel" and "OK" buttons
-        .setEditable(true); // Editable slected dates in calendar, 
+        .setEditable(true); // Editable selected dates in calendar, 
 ```
 
 
