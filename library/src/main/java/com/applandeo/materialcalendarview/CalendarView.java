@@ -84,10 +84,12 @@ public class CalendarView extends LinearLayout {
         public void onPageSelected(int position) {
             Calendar calendar = (Calendar) mCalendarProperties.getFirstPageCalendarDate().clone();
             calendar.add(Calendar.MONTH, position);
-
-            if (!isScrollingLimited(calendar, position)) {
-                setHeaderName(calendar, position);
+            if (mCalendarProperties.IsEditable()) {
+                if (!isScrollingLimited(calendar, position)) {
+                    setHeaderName(calendar, position);
+                }
             }
+
         }
 
         @Override
@@ -324,6 +326,7 @@ public class CalendarView extends LinearLayout {
 
     // This method calls page change listeners after swipe calendar or click arrow buttons
     private void callOnPageChangeListeners(int position) {
+
         if (position > mCurrentPage && mCalendarProperties.getOnForwardPageChangeListener() != null) {
             mCalendarProperties.getOnForwardPageChangeListener().onChange();
         }

@@ -1,5 +1,7 @@
 package com.applandeo.materialcalendarview.listeners;
 
+import android.app.Dialog;
+
 import java.util.Calendar;
 import java.util.List;
 
@@ -8,5 +10,5 @@ import java.util.List;
  */
 
 public interface OnSelectDateListener {
-    void onSelect(List<Calendar> calendar);
+    void onSelect(List<Calendar> calendar, Dialog dialog);
 }

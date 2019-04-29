@@ -1,5 +1,6 @@
 package com.applandeo.materialcalendarsampleapp;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -161,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements OnSelectDateListe
     }
 
     @Override
-    public void onSelect(List<Calendar> calendars) {
+    public void onSelect(List<Calendar> calendars, Dialog dialog) {
         Stream.of(calendars).forEach(calendar ->
                 Toast.makeText(getApplicationContext(),
                         calendar.getTime().toString(),

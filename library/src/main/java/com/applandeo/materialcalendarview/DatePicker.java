@@ -72,8 +72,7 @@ public class DatePicker {
         mCancelButton.setOnClickListener(v -> alertdialog.cancel());
 
         mOkButton.setOnClickListener(v -> {
-            alertdialog.cancel();
-            mCalendarProperties.getOnSelectDateListener().onSelect(calendarView.getSelectedDates());
+            mCalendarProperties.getOnSelectDateListener().onSelect(calendarView.getSelectedDates(), alertdialog);
         });
 
         mTodayButton.setOnClickListener(v -> calendarView.showCurrentMonthPage());

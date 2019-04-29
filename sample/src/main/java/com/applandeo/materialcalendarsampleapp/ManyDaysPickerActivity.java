@@ -9,8 +9,11 @@ import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.EventDay;
 import com.applandeo.materialcalendarview.utils.DateUtils;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -36,13 +39,17 @@ public class ManyDaysPickerActivity extends AppCompatActivity {
 
         List<EventDay> events = new ArrayList<>();
 
+        Calendar min = Calendar.getInstance();
+        min.add(Calendar.DAY_OF_MONTH, -getTodayDate());
+        Calendar max = Calendar.getInstance();
+        max.add(Calendar.DAY_OF_MONTH, getDaysInMonth());
+        calendarView.setMaximumDate(max);
+        calendarView.setMinimumDate(min);
+        calendarView.setSelectedDates(getSelectedDays());
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DAY_OF_MONTH, 7);
-        events.add(new EventDay(cal, R.drawable.sample_four_icons));
-
-        calendarView.setEvents(events);
-        calendarView.setIsEditable(true);
-
+        cal.add(Calendar.DAY_OF_MONTH, 0);
+        calendarView.setSwipeEnabled(false);
+        calendarView.setIsEditable(false);
 
         Button getDateButton = findViewById(R.id.getDateButton);
         getDateButton.setOnClickListener(v -> {
@@ -66,5 +73,30 @@ public class ManyDaysPickerActivity extends AppCompatActivity {
         }
 
         return calendars;
+    }
+
+    private int getDaysInMonth() {
+        Date d1 = new Date();
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String startDate = dateFormat.format(d1);
+        String[] todayDate = startDate.split("/");
+        int today = Integer.parseInt(todayDate[0]);
+        int month = Integer.parseInt(todayDate[1]);
+        int year = Integer.parseInt(todayDate[2]);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year, month - 1, today);
+        int daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+        int maxDays = daysInMonth - today;
+        return maxDays;
+    }
+
+    private int getTodayDate() {
+        Date d1 = new Date();
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String startDate = dateFormat.format(d1);
+        String[] todayDate = startDate.split("/");
+        int today = Integer.parseInt(todayDate[0]);
+        return today;
     }
 }
