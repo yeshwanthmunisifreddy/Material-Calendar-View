@@ -334,7 +334,6 @@ public class CalendarView extends LinearLayout {
         if (position < mCurrentPage && mCalendarProperties.getOnPreviousPageChangeListener() != null) {
             mCalendarProperties.getOnPreviousPageChangeListener().onChange();
         }
-
         mCurrentPage = position;
     }
 
